@@ -136,16 +136,6 @@ python analysis/hospital_analysis.py
 
 ---
 
-## 进阶扩展（完成基础后挑战）
-
-1. **增加数据量**：将 `NUM_RECORDS` 改为 500 万，观察 Spark 大数据的威力
-2. **增加分析维度**：按星期几分析、按季度分析、医生效率分析
-3. **可视化**：结合 matplotlib 或 ECharts 生成图表
-4. **实时流处理**：用 Spark Streaming 模拟实时挂号
-5. **机器学习**：预测未来挂号量（时间序列预测）
-
----
-
 ## 常见问题
 
 **Q: 运行报错 "Java gateway process exited"？** 
@@ -163,15 +153,3 @@ os.environ["HADOOP_HOME"] = "C:\\spark"
 A: 可修改 `generate_data.py` 中的科室、医生列表，或调整时间分布权重。
 
 ---
-
-## 推荐学习资源
-
-- [Apache Spark 官方文档](https://spark.apache.org/docs/latest/)
-- [PySpark 入门教程](https://spark.apache.org/docs/latest/api/python/index.html)
-- [Spark SQL 编程指南](https://spark.apache.org/docs/latest/sql-programming-guide.html)
-- B站搜索 "PySpark 从入门到精通"
-
----
-
-> **给新手的建议**：先按步骤跑通整个流程，再理解每一行代码的含义。 
-> 不要害怕 Spark 的"大数据"标签**本项目在本机上就能运行**，本质就是处理 CSV 文件而已。
