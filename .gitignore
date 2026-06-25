@@ -6,7 +6,6 @@ data/registration_records.csv
  output/
 .idea/
 .vscode/
-Spark在医院挂号记录统计中的应用.pptx
 "@ | Set-Content -Path ".gitignore" -Encoding UTF8
 
 git add .gitignore

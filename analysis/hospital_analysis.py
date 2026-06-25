@@ -216,6 +216,18 @@ def main():
         print(f" 所有结果已保存到: {OUTPUT_DIR}/")
         print("=" * 60)
 
+        # 暂停，保持 Spark UI 存活，便于截图 DAG（截图13）
+        ui_url = spark.sparkContext.uiWebUrl
+        print("\n" + "=" * 60)
+        print(f" Spark UI 仍在运行: {ui_url}")
+        print(" 请在浏览器打开上面的地址，进入 Jobs / Stages 查看 DAG Visualization。")
+        print(" 截图完成后，回到此窗口按 回车 键退出。")
+        print("=" * 60)
+        try:
+            input(" >> 按 Enter 退出并关闭 Spark UI ... ")
+        except EOFError:
+            pass
+
     finally:
         spark.stop()
 
