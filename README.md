@@ -53,15 +53,21 @@ BigData Experiment/
 
 ### 前提条件检查
 
-你的电脑已满足以下条件：
-- **Java 25**（已安装）
-- **Python 3.13**（已安装）
-- **pip**（已安装）
-- **Apache Spark**（需要安装下面第 1 步搞定）
+开始之前，请确认你的电脑已安装以下软件。可在 PowerShell / 终端中运行对应命令自行检查：
+
+| 软件 | 版本要求 | 检查命令 |
+|------|----------|----------|
+| **Java** | 17 / 21 / 25（LTS 版本） | `java -version` |
+| **Python** | 3.8 以上（推荐 3.13） | `python --version` |
+| **pip** | 随 Python 一起安装 | `pip --version` |
+| **Apache Spark** | 3.5+（尚未安装也没关系） | `pyspark --version` |
+
+> 若某条命令报「找不到命令 / 不是内部或外部命令」，说明该软件尚未安装或未加入 PATH。
+> Java 和 Python 请先自行安装；**Apache Spark 可在下面第 1 步一键搞定**，无需提前准备。
 
 ### 第 1 步：安装 Apache Spark
 
-> ⏱ 约 5 分钟
+> 约 5 分钟
 
 **方式 A：使用一键脚本（推荐）**
 
@@ -116,8 +122,17 @@ python data/generate_data.py
 python analysis/hospital_analysis.py
 ```
 
-> ⏱ 首次运行 Spark 需要初始化 JVM，约 10-30 秒 
+> 首次运行 Spark 需要初始化 JVM，约 10-30 秒 
 > 后续运行会更快
+
+**关于 Spark UI（查看任务执行的 DAG 图）**
+
+分析全部完成后，程序**不会立即退出**，而是会打印出 Spark UI 的地址（通常为 `http://localhost:4040`，被占用时自动顺延到 4041 等），并停在「按 Enter 退出」处等待。
+
+此时可在浏览器打开该地址，进入 **Jobs** 或 **Stages** 标签，展开 **DAG Visualization** 查看任务的有向无环图。查看完毕后回到终端按 **回车** 键，程序才会关闭 Spark UI 并退出。
+
+> 由于 `local[*]` 单机模式下分析仅需数秒即可完成，如不暂停，Spark UI 会随程序退出而立即关闭、来不及查看。该暂停即为此设计。
+> 注意：需在支持键盘输入的终端（PowerShell / 终端 / IDE 集成终端）中运行；在不支持输入的环境下程序会直接退出，无法查看 UI。
 
 ---
 

@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 data/registration_records.csv
- output/
+output/
 .idea/
 .vscode/
 "@ | Set-Content -Path ".gitignore" -Encoding UTF8
