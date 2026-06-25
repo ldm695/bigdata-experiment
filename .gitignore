@@ -5,4 +5,5 @@ data/registration_records.csv
 output/
 .idea/
 .vscode/
+.claude/
 projects/
