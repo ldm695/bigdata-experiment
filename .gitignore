@@ -1,4 +1,3 @@
-@"
 __pycache__/
 *.pyc
 *.pyo
@@ -6,8 +5,4 @@ data/registration_records.csv
 output/
 .idea/
 .vscode/
-"@ | Set-Content -Path ".gitignore" -Encoding UTF8
-
-git add .gitignore
-git add .
-git commit -m "初始化：Spark 医院挂号记录统计分析项目"
+projects/
